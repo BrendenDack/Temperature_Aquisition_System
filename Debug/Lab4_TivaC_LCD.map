@@ -1,0 +1,531 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Wed Nov 13 16:35:08 2024
+
+OUTPUT FILE NAME:   <Lab4_TivaC_LCD.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000fb5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000106a  0003ef96  R  X
+  SRAM                  20000000   00008000  0000020f  00007df1  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001070   00001070    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000dce   00000dce    r-x .text
+  00001040    00001040    00000030   00000030    r-- .cinit
+20000000    20000000    0000020f   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000000e   00000000    rw- .bss
+  2000020e    2000020e    00000001   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000dce     
+                  0000026c    000003b8     LCD.obj (.text)
+                  00000624    000001b4     ADCSWTrigger.obj (.text)
+                  000007d8    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.asm.obj (.text)
+                  0000090e    00000112     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000a20    0000010c     main.obj (.text)
+                  00000b2c    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00000c28    000000ac     TimerA0.obj (.text)
+                  00000cd4    000000a0     SysTickInts.obj (.text)
+                  00000d74    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000e10    00000088     PLL.obj (.text)
+                  00000e98    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.asm.obj (.text)
+                  00000f06    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00000f6e    00000002     --HOLE-- [fill = 0]
+                  00000f70    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000fb4    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00000fe8    00000020                                   : u_tofd_t2.asm.obj (.text)
+                  00001008    0000001c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001024    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001032    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  00001036    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00001040    00000030     
+                  00001040    0000000c     (__TI_handler_table)
+                  0000104c    00000004     --HOLE-- [fill = 0]
+                  00001050    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001058    00000005     (.cinit..data.load) [load image, compression = lzss]
+                  0000105d    00000003     --HOLE-- [fill = 0]
+                  00001060    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    0000000e     UNINITIALIZED
+                  20000200    00000004     (.common:ADCvalue)
+                  20000204    00000004     (.common:Counts)
+                  20000208    00000004     (.common:wait_per)
+                  2000020c    00000001     (.common:LCD_E)
+                  2000020d    00000001     (.common:LCD_RS)
+
+.data      0    2000020e    00000001     UNINITIALIZED
+                  2000020e    00000001     SysTickInts.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       LCD.obj                        952    0         2      
+       tm4c123gh6pm_startup_ccs.obj   274    620       0      
+       ADCSWTrigger.obj               436    0         0      
+       main.obj                       268    0         0      
+       SysTickInts.obj                160    0         13     
+       TimerA0.obj                    172    0         0      
+       PLL.obj                        136    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         2398   620       15     
+                                                              
+    C:\ti\ccs1281\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_div_t2.asm.obj              310    0         0      
+       fd_mul_t2.asm.obj              252    0         0      
+       memcpy_t2.asm.obj              156    0         0      
+       fd_tos_t2.asm.obj              110    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       u_tofd_t2.asm.obj              32     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1134   0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      41        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   3532   661       527    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001060 records: 2, size/record: 8, table size: 16
+	.bss: load addr=00001050, load size=00000008 bytes, run addr=20000200, run size=0000000e bytes, compression=zero_init
+	.data: load addr=00001058, load size=00000005 bytes, run addr=2000020e, run size=00000001 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001040 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+0000093f  ADC0Seq0_Handler              
+00000941  ADC0Seq1_Handler              
+00000943  ADC0Seq2_Handler              
+00000945  ADC0Seq3_Handler              
+00000769  ADC0_InSeq3                   
+000006c7  ADC0_InitSWTriggerSeq3_Ch8    
+00000625  ADC0_InitSWTriggerSeq3_Ch9    
+00000983  ADC1Seq0_Handler              
+00000985  ADC1Seq1_Handler              
+00000987  ADC1Seq2_Handler              
+00000989  ADC1Seq3_Handler              
+20000200  ADCvalue                      
+00001037  C$$EXIT                       
+00000971  CAN0_Handler                  
+00000973  CAN1_Handler                  
+00000975  CAN2_Handler                  
+00000955  Comp0_Handler                 
+00000957  Comp1_Handler                 
+00000959  Comp2_Handler                 
+20000204  Counts                        
+0000091d  DebugMon_Handler              
+00000a07  DisableInterrupts             
+00000a0b  EnableInterrupts              
+00000a17  EndCritical                   
+00000977  Ethernet_Handler              
+0000098d  ExtBus_Handler                
+000009c7  FPU_Handler                   
+000009d7  Fan0_Handler                  
+0000095d  FlashCtl_Handler              
+00000923  GPIOPortA_Handler             
+00000925  GPIOPortB_Handler             
+00000927  GPIOPortC_Handler             
+00000929  GPIOPortD_Handler             
+0000092b  GPIOPortE_Handler             
+0000095f  GPIOPortF_Handler             
+00000961  GPIOPortG_Handler             
+00000963  GPIOPortH_Handler             
+0000098f  GPIOPortJ_Handler             
+00000991  GPIOPortK_Handler             
+00000993  GPIOPortL_Handler             
+000009d1  GPIOPortM_Handler             
+000009d3  GPIOPortN_Handler             
+000009db  GPIOPortP1_Handler            
+000009dd  GPIOPortP2_Handler            
+000009df  GPIOPortP3_Handler            
+000009e1  GPIOPortP4_Handler            
+000009e3  GPIOPortP5_Handler            
+000009e5  GPIOPortP6_Handler            
+000009e7  GPIOPortP7_Handler            
+000009d9  GPIOPortP_Handler             
+000009eb  GPIOPortQ1_Handler            
+000009ed  GPIOPortQ2_Handler            
+000009ef  GPIOPortQ3_Handler            
+000009f1  GPIOPortQ4_Handler            
+000009f3  GPIOPortQ5_Handler            
+000009f5  GPIOPortQ6_Handler            
+000009f7  GPIOPortQ7_Handler            
+000009e9  GPIOPortQ_Handler             
+000009f9  GPIOPortR_Handler             
+000009fb  GPIOPortS_Handler             
+00000a73  GPIO_PORTF_INIT               
+00000979  Hibernate_Handler             
+00000933  I2C0_Handler                  
+0000096d  I2C1_Handler                  
+000009a3  I2C2_Handler                  
+000009a5  I2C3_Handler                  
+000009cd  I2C4_Handler                  
+000009cf  I2C5_Handler                  
+0000098b  I2S0_Handler                  
+000002f9  LCD_Clear                     
+2000020c  LCD_E                         
+00000309  LCD_Init                      
+0000042b  LCD_OutChar                   
+0000048d  LCD_OutCmd                    
+000004ef  LCD_OutString                 
+0000051b  LCD_OutUDec                   
+00000555  LCD_OutUFix                   
+0000054b  LCD_OutUHex                   
+2000020d  LCD_RS                        
+000009cb  LPC0_Handler                  
+0000026d  Out_RS_E                      
+000009c9  PECI0_Handler                 
+00000e11  PLL_Init                      
+00000935  PWM0Fault_Handler             
+00000937  PWM0Generator0_Handler        
+00000939  PWM0Generator1_Handler        
+0000093b  PWM0Generator2_Handler        
+0000097d  PWM0Generator3_Handler        
+00000a05  PWM1Fault_Handler             
+000009fd  PWM1Generator0_Handler        
+000009ff  PWM1Generator1_Handler        
+00000a01  PWM1Generator2_Handler        
+00000a03  PWM1Generator3_Handler        
+0000091f  PendSV_Handler                
+0000093d  Quadrature0_Handler           
+0000096f  Quadrature1_Handler           
+000009d5  Quadrature2_Handler           
+0000090f  ResetISR                      
+00000931  SSI0_Handler                  
+00000967  SSI1_Handler                  
+00000995  SSI2_Handler                  
+00000997  SSI3_Handler                  
+0000091b  SVC_Handler                   
+00000a21  Sample_to_Farenheit           
+000002c1  SendChar                      
+000002dd  SendCmd                       
+00000295  SendPulse                     
+00000a0f  StartCritical                 
+0000095b  SysCtl_Handler                
+00000d25  SysTick_Handler               
+00000cd5  SysTick_Init                  
+00000d4b  SysTick_Mailbox               
+00000949  Timer0A_Handler               
+0000094b  Timer0B_Handler               
+0000094d  Timer1A_Handler               
+0000094f  Timer1B_Handler               
+00000951  Timer2A_Handler               
+00000953  Timer2B_Handler               
+00000969  Timer3A_Handler               
+0000096b  Timer3B_Handler               
+000009a7  Timer4A_Handler               
+000009a9  Timer4B_Handler               
+000009ab  Timer5A_Handler               
+000009ad  Timer5B_Handler               
+00000c29  TimerA0_Wait                  
+00000c85  TimerA0_Wait10ms              
+0000092d  UART0_Handler                 
+0000092f  UART1_Handler                 
+00000965  UART2_Handler                 
+00000999  UART3_Handler                 
+0000099b  UART4_Handler                 
+0000099d  UART5_Handler                 
+0000099f  UART6_Handler                 
+000009a1  UART7_Handler                 
+0000097b  USB0_Handler                  
+00000947  WDT_Handler                   
+00000a1d  WaitForInterrupt              
+000009af  WideTimer0A_Handler           
+000009b1  WideTimer0B_Handler           
+000009b3  WideTimer1A_Handler           
+000009b5  WideTimer1B_Handler           
+000009b7  WideTimer2A_Handler           
+000009b9  WideTimer2B_Handler           
+000009bb  WideTimer3A_Handler           
+000009bd  WideTimer3B_Handler           
+000009bf  WideTimer4A_Handler           
+000009c1  WideTimer4B_Handler           
+000009c3  WideTimer5A_Handler           
+000009c5  WideTimer5B_Handler           
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00001060  __TI_CINIT_Base               
+00001070  __TI_CINIT_Limit              
+00001040  __TI_Handler_Table_Base       
+0000104c  __TI_Handler_Table_Limit      
+00000f71  __TI_auto_init_nobinit_nopinit
+00000f07  __TI_decompress_lzss          
+00001025  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001009  __TI_zero_init_nomemset       
+00000e99  __aeabi_d2f                   
+000007d9  __aeabi_ddiv                  
+00000b2d  __aeabi_dmul                  
+00000d75  __aeabi_memcpy                
+00000d75  __aeabi_memcpy4               
+00000d75  __aeabi_memcpy8               
+00000fe9  __aeabi_ui2d                  
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00000fb5  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001033  _system_pre_init              
+00001037  abort                         
+ffffffff  binit                         
+00000000  g_pfnVectors                  
+2000020e  mailbox                       
+00000aa5  main                          
+00000d75  memcpy                        
+00000981  uDMA_Error                    
+0000097f  uDMA_Handler                  
+20000208  wait_per                      
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  Out_RS_E                      
+00000295  SendPulse                     
+000002c1  SendChar                      
+000002dd  SendCmd                       
+000002f9  LCD_Clear                     
+00000309  LCD_Init                      
+0000042b  LCD_OutChar                   
+0000048d  LCD_OutCmd                    
+000004ef  LCD_OutString                 
+0000051b  LCD_OutUDec                   
+0000054b  LCD_OutUHex                   
+00000555  LCD_OutUFix                   
+00000625  ADC0_InitSWTriggerSeq3_Ch9    
+000006c7  ADC0_InitSWTriggerSeq3_Ch8    
+00000769  ADC0_InSeq3                   
+000007d9  __aeabi_ddiv                  
+0000090f  ResetISR                      
+0000091b  SVC_Handler                   
+0000091d  DebugMon_Handler              
+0000091f  PendSV_Handler                
+00000923  GPIOPortA_Handler             
+00000925  GPIOPortB_Handler             
+00000927  GPIOPortC_Handler             
+00000929  GPIOPortD_Handler             
+0000092b  GPIOPortE_Handler             
+0000092d  UART0_Handler                 
+0000092f  UART1_Handler                 
+00000931  SSI0_Handler                  
+00000933  I2C0_Handler                  
+00000935  PWM0Fault_Handler             
+00000937  PWM0Generator0_Handler        
+00000939  PWM0Generator1_Handler        
+0000093b  PWM0Generator2_Handler        
+0000093d  Quadrature0_Handler           
+0000093f  ADC0Seq0_Handler              
+00000941  ADC0Seq1_Handler              
+00000943  ADC0Seq2_Handler              
+00000945  ADC0Seq3_Handler              
+00000947  WDT_Handler                   
+00000949  Timer0A_Handler               
+0000094b  Timer0B_Handler               
+0000094d  Timer1A_Handler               
+0000094f  Timer1B_Handler               
+00000951  Timer2A_Handler               
+00000953  Timer2B_Handler               
+00000955  Comp0_Handler                 
+00000957  Comp1_Handler                 
+00000959  Comp2_Handler                 
+0000095b  SysCtl_Handler                
+0000095d  FlashCtl_Handler              
+0000095f  GPIOPortF_Handler             
+00000961  GPIOPortG_Handler             
+00000963  GPIOPortH_Handler             
+00000965  UART2_Handler                 
+00000967  SSI1_Handler                  
+00000969  Timer3A_Handler               
+0000096b  Timer3B_Handler               
+0000096d  I2C1_Handler                  
+0000096f  Quadrature1_Handler           
+00000971  CAN0_Handler                  
+00000973  CAN1_Handler                  
+00000975  CAN2_Handler                  
+00000977  Ethernet_Handler              
+00000979  Hibernate_Handler             
+0000097b  USB0_Handler                  
+0000097d  PWM0Generator3_Handler        
+0000097f  uDMA_Handler                  
+00000981  uDMA_Error                    
+00000983  ADC1Seq0_Handler              
+00000985  ADC1Seq1_Handler              
+00000987  ADC1Seq2_Handler              
+00000989  ADC1Seq3_Handler              
+0000098b  I2S0_Handler                  
+0000098d  ExtBus_Handler                
+0000098f  GPIOPortJ_Handler             
+00000991  GPIOPortK_Handler             
+00000993  GPIOPortL_Handler             
+00000995  SSI2_Handler                  
+00000997  SSI3_Handler                  
+00000999  UART3_Handler                 
+0000099b  UART4_Handler                 
+0000099d  UART5_Handler                 
+0000099f  UART6_Handler                 
+000009a1  UART7_Handler                 
+000009a3  I2C2_Handler                  
+000009a5  I2C3_Handler                  
+000009a7  Timer4A_Handler               
+000009a9  Timer4B_Handler               
+000009ab  Timer5A_Handler               
+000009ad  Timer5B_Handler               
+000009af  WideTimer0A_Handler           
+000009b1  WideTimer0B_Handler           
+000009b3  WideTimer1A_Handler           
+000009b5  WideTimer1B_Handler           
+000009b7  WideTimer2A_Handler           
+000009b9  WideTimer2B_Handler           
+000009bb  WideTimer3A_Handler           
+000009bd  WideTimer3B_Handler           
+000009bf  WideTimer4A_Handler           
+000009c1  WideTimer4B_Handler           
+000009c3  WideTimer5A_Handler           
+000009c5  WideTimer5B_Handler           
+000009c7  FPU_Handler                   
+000009c9  PECI0_Handler                 
+000009cb  LPC0_Handler                  
+000009cd  I2C4_Handler                  
+000009cf  I2C5_Handler                  
+000009d1  GPIOPortM_Handler             
+000009d3  GPIOPortN_Handler             
+000009d5  Quadrature2_Handler           
+000009d7  Fan0_Handler                  
+000009d9  GPIOPortP_Handler             
+000009db  GPIOPortP1_Handler            
+000009dd  GPIOPortP2_Handler            
+000009df  GPIOPortP3_Handler            
+000009e1  GPIOPortP4_Handler            
+000009e3  GPIOPortP5_Handler            
+000009e5  GPIOPortP6_Handler            
+000009e7  GPIOPortP7_Handler            
+000009e9  GPIOPortQ_Handler             
+000009eb  GPIOPortQ1_Handler            
+000009ed  GPIOPortQ2_Handler            
+000009ef  GPIOPortQ3_Handler            
+000009f1  GPIOPortQ4_Handler            
+000009f3  GPIOPortQ5_Handler            
+000009f5  GPIOPortQ6_Handler            
+000009f7  GPIOPortQ7_Handler            
+000009f9  GPIOPortR_Handler             
+000009fb  GPIOPortS_Handler             
+000009fd  PWM1Generator0_Handler        
+000009ff  PWM1Generator1_Handler        
+00000a01  PWM1Generator2_Handler        
+00000a03  PWM1Generator3_Handler        
+00000a05  PWM1Fault_Handler             
+00000a07  DisableInterrupts             
+00000a0b  EnableInterrupts              
+00000a0f  StartCritical                 
+00000a17  EndCritical                   
+00000a1d  WaitForInterrupt              
+00000a21  Sample_to_Farenheit           
+00000a73  GPIO_PORTF_INIT               
+00000aa5  main                          
+00000b2d  __aeabi_dmul                  
+00000c29  TimerA0_Wait                  
+00000c85  TimerA0_Wait10ms              
+00000cd5  SysTick_Init                  
+00000d25  SysTick_Handler               
+00000d4b  SysTick_Mailbox               
+00000d75  __aeabi_memcpy                
+00000d75  __aeabi_memcpy4               
+00000d75  __aeabi_memcpy8               
+00000d75  memcpy                        
+00000e11  PLL_Init                      
+00000e99  __aeabi_d2f                   
+00000f07  __TI_decompress_lzss          
+00000f71  __TI_auto_init_nobinit_nopinit
+00000fb5  _c_int00_noargs               
+00000fe9  __aeabi_ui2d                  
+00001009  __TI_zero_init_nomemset       
+00001025  __TI_decompress_none          
+00001033  _system_pre_init              
+00001037  C$$EXIT                       
+00001037  abort                         
+00001040  __TI_Handler_Table_Base       
+0000104c  __TI_Handler_Table_Limit      
+00001060  __TI_CINIT_Base               
+00001070  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  ADCvalue                      
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000204  Counts                        
+20000208  wait_per                      
+2000020c  LCD_E                         
+2000020d  LCD_RS                        
+2000020e  mailbox                       
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[189 symbols]
